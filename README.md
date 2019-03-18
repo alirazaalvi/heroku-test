@@ -52,8 +52,8 @@ Project Structure
 
 | Name                               | Description                                                  |
 | ---------------------------------- | ------------------------------------------------------------ |
-| **controllers**/hotel.js             | Controller for hotels api routes.              |
-| **helpers**/index.js         | Helper methods for sorting and filtering of hotel list.                                 |
+| **controllers**/             | Controllers for all apis           |
+| **helpers**/index.js         | Utilities methods.                        |
 | .eslintrc                          | Rules for eslint linter.                                     |
 | .gitignore                         | Folder and files ignored by git.                             |
 | .travis.yml                        | Configuration files for continue integration.                |
