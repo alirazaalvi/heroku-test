@@ -11,7 +11,7 @@ Prerequisites
 -------------
 - [Node.js 8.0+](http://nodejs.org)
 
-Getting Started`
+Getting Started
 ---------------
 
 The easiest way to get started is to clone the repository:
@@ -60,3 +60,12 @@ Project Structure
 | app.js                             | The main application file.                                   |
 | package.json                       | NPM dependencies.                                            |
 | package-lock.json                  | Contains exact versions of NPM dependencies in package.json. |
+
+
+Additional Resources
+--------------------
+
+# Knex
+https://gist.github.com/NigelEarle/70db130cc040cc2868555b29a0278261
+
+https://github.com/rstacruz/cheatsheets/blob/master/knex.md#schema
