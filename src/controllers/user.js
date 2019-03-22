@@ -4,9 +4,9 @@
  */
 async function getUsers(req, res) {
   const users = [{
-    id: 1,
-    name: 'Test User',
-    email: 'test@gmail.com',
+    email: "test@gmail.com",
+    id: "1",
+    name: "Test User",
   }];
 
   return res.send(users);

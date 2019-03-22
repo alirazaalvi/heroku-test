@@ -1,5 +1,5 @@
-const express = require('express');
-const userController = require('./src/controllers/user');
+import express from 'express';
+import * as userController from './controllers/user';
 
 const app = express();
 
@@ -15,7 +15,6 @@ app.get('/', (req, res) => res.send('Nothing to return'));
 
 app.route('/users')
   .get(userController.getUsers);
-
 
 app.listen(8000, () => console.log('App is listening on port 8000!'));
 
