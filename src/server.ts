@@ -1,9 +1,9 @@
-import express from 'express';
+import express, { Request, Response, NextFunction} from 'express';,
 import * as userController from './controllers/user';
 
 const app = express();
 
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next: NextFunction) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -11,7 +11,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', (req, res) => res.send('Nothing to return'));
+app.get('/', (req: Request, res: Response) => res.send('Nothing to return'));
 
 app.route('/users')
   .get(userController.getUsers);
