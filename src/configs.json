@@ -1,0 +1,19 @@
+{
+  "env": "dev",
+  "reader": {
+    "host": "localhost",
+    "port": 8889,
+    "user": "root",
+    "password": "root",
+    "database": "nitrogen",
+    "poolSize": 100
+  },
+  "writer": {
+    "host": "localhost",
+    "port": 8889,
+    "user": "root",
+    "password": "root",
+    "database": "nitrogen",
+    "poolSize": 100
+  }
+}
