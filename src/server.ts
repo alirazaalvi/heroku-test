@@ -13,8 +13,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 app.get('/', (req: Request, res: Response) => res.send('Nothing to return'));
 
-app.route('/users')
-  .get(userController.getUsers);
+app.route('/users').get(userController.getUsers);
 
 app.listen(8000, () => console.log('App is listening on port 8000!'));
 

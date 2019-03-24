@@ -6,6 +6,7 @@
           true,
           160
       ],
+      "space-before-function-paren": false,
       "no-unnecessary-initializer": false,
       "no-var-requires": true,
       "no-null-keyword": true,
