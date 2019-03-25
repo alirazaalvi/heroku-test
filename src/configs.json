@@ -15,5 +15,10 @@
     "password": "root",
     "database": "nitrogen",
     "poolSize": 100
+  },
+  "encryption": {
+    "encryptionSalt": "T05O;{[H7uV#+yU",
+    "encryptionIterations": 4,
+    "encryptionKeyLength": 32
   }
 }

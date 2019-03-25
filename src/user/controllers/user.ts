@@ -1,3 +1,4 @@
+import { strongEncrypt } from './../../helpers/encryption';
 import { insertUser, getUser } from './../services/user_service';
 import { Request, Response, NextFunction } from 'express';
 import { check, validationResult } from 'express-validator/check';
@@ -46,7 +47,7 @@ export let signup = async(req: Request, res: Response) => {
     email: input.email,
     firstName: input.firstName,
     lastName: input.lastName,
-    password: input.password,
+    password: strongEncrypt(input.password),
     role: 1,
   };
 
