@@ -20,5 +20,9 @@
     "encryptionSalt": "T05O;{[H7uV#+yU",
     "encryptionIterations": 4,
     "encryptionKeyLength": 32
+  },
+  "jwt": {
+    "secret": "^@)w{d}/rVk=Te79",
+    "expiry": "365d"
   }
 }
