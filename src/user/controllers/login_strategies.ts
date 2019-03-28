@@ -1,7 +1,13 @@
 import passport from 'passport';
+import passportJWT from 'passport-jwt';
 import { Strategy } from 'passport-local';
-import { checkUserLogin, comparePasswords } from '../services/user_service';
+import { checkUserLogin, comparePasswords, getUserByEmail } from '../services/user_service';
 import db from '../../db';
+import configs from '../../configs.json';
+
+
+const ExtractJWT = passportJWT.ExtractJwt;
+const JWTStrategy   = passportJWT.Strategy;
 
 export const initStrategies = () => {
   /**
@@ -23,5 +29,18 @@ export const initStrategies = () => {
     }
 
     return done({ error: 'Invalid email or password.' }, false);
+  }));
+
+  passport.use(new JWTStrategy({
+    jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+    secretOrKey   : configs.jwt.secret,
+  },
+  async(jwtPayload, cb) => {
+    const user = getUserByEmail(db, jwtPayload.email);
+    if (user) {
+      return cb(undefined, user);
+    } else {
+      return cb(undefined, false, {error: 'Incorrect email or password.'});
+    }
   }));
 };

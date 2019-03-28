@@ -19,6 +19,12 @@ export const checkUserLogin = (db: knex, email: string, password: string) => {
     .first();
 };
 
+export const getUserByEmail = (db: knex, email: string) {
+  return db('users')
+  .where(email)
+  .first();
+};
+
 export const comparePasswords = (inputPassword: string, encryptedPassword: string) => {
   if (strongEncrypt(inputPassword) === encryptedPassword) {
     return true;

@@ -33,6 +33,7 @@ app.get('/users', userController.getUsers);
 // app.post('/signup', userController.signup);
 app.post('/signup', userController.signup);
 app.post('/login', userController.login);
+app.use('/user', passport.authenticate('jwt', {session: false}), (req: Request, res: Response) => res.send('Nothing to return'));
 // app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
 
 
