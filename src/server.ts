@@ -4,7 +4,7 @@ import expressValidator from 'express-validator';
 import passport from 'passport';
 import { checkSchema } from 'express-validator/check';
 import * as userController from './user/controllers/user';
-import * as loginStrategies from './user/controllers/login_strategies';
+import * as loginStrategies from './user/services/login_strategies';
 
 loginStrategies.initStrategies();
 
