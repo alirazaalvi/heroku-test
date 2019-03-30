@@ -19,7 +19,7 @@ export const checkUserLogin = (db: knex, email: string, password: string) => {
     .first();
 };
 
-export const getUserByEmail = (db: knex, email: string) {
+export const getUserByEmail = (db: knex, email: string) => {
   return db('users')
   .where(email)
   .first();
