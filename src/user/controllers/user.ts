@@ -55,6 +55,9 @@ export const signup = async(req: Request, res: Response) => {
   };
 
   const user = await insertUser(db, newUser).catch( err => console.log(err));
+  if (!user) {
+    return res.status(400).json({response: 'Unable to add user. Please try again.'});
+  }
 
   return res.status(200).json({response: 'User added successfully.'});
 };
