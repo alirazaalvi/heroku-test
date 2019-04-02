@@ -36,8 +36,7 @@ app.post('/login', userController.login);
 app.use('/user', passport.authenticate('jwt', {session: false}), (req: Request, res: Response) => res.send('Nothing to return'));
 // app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
 
-
 app.listen(8000, () => console.log('App is listening on port 8000!'));
 
 // Exporting the app object so that it will be used for testing
-module.exports = app;
+export default app;

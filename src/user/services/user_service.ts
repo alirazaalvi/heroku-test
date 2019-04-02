@@ -1,15 +1,22 @@
 import knex from 'knex';
-import { UserSignupViewModel } from '../models/user_model';
+import { User, UserSignupViewModel } from '../models/user_model';
 import { strongEncrypt } from '../../helpers/encryption';
 
-export const insertUser = (db: knex, newUser: UserSignupViewModel) => {
-  return db('users').insert(newUser);
+// Workaround: Returning another plain promise for macking mocks for test.
+// Todo: Once i'll find better solution then extra promise will go away.
+
+export const insertUser = async(db: knex, newUser: UserSignupViewModel) => {
+  const user = await db('users').insert(newUser);
+  return new Promise((resolve, reject ) => (resolve(user)));
 };
 
-export const getUser = (db: knex, email: string) => {
-  return db('users')
+export const getUser = async(db: knex, email: string) => {
+  const user = await db('users')
     .count({count: 'id'})
-    .where({ email});
+    .where({ email})
+    .first();
+
+    return new Promise((resolve, reject ) => (resolve(user)));
 };
 
 export const checkUserLogin = (db: knex, email: string, password: string) => {

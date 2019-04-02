@@ -1,10 +1,13 @@
 import knex from 'knex';
 import { knexSnakeCaseMappers } from 'objection';
+import * as MockKnex from 'mock-knex';
 
 import configs from './configs.json';
 
+const env = process.env.NODE_ENV || 'development';
+
 const writer = configs.writer;
-const connection = knex({
+export let connection = knex({
   client: 'mysql2',
   connection: {
     host: writer.host,
@@ -22,4 +25,8 @@ const connection = knex({
 }
 );
 
-export default connection;
+// if (env === 'test') {
+//   MockKnex.mock(connection);
+// }
+
+ export default connection;

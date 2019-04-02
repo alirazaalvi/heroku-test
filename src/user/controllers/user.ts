@@ -5,7 +5,7 @@ import { strongEncrypt } from './../../helpers/encryption';
 import { insertUser, getUser } from './../services/user_service';
 import { check, validationResult } from 'express-validator/check';
 import { UserSignupViewModel } from '../models/user_model';
-import db from '../../db';
+import { connection } from '../../db';
 import config from '../../configs.json';
 
 /**
@@ -41,8 +41,9 @@ export const signup = async(req: Request, res: Response) => {
 
   const input = req.body;
 
-  const existingUser = await getUser(db, input.email);
-  if (existingUser[0].count > 0) {
+  const existingUser = await getUser(connection, input.email);
+
+  if (existingUser) {
     return res.status(400).json({response: 'User already exists.'});
   }
 
@@ -54,7 +55,8 @@ export const signup = async(req: Request, res: Response) => {
     role: 1,
   };
 
-  const user = await insertUser(db, newUser).catch( err => console.log(err));
+  const user = await insertUser(connection, newUser);
+
   if (!user) {
     return res.status(400).json({response: 'Unable to add user. Please try again.'});
   }
