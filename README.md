@@ -28,6 +28,9 @@ npm install -g knex
 # Install NPM dependencies
 npm install
 
+# Start and watch the application for development
+npm run watch-debug
+
 # Start the application
 npm start
 
