@@ -1,7 +1,6 @@
 import knex from 'knex';
 import { knexSnakeCaseMappers } from 'objection';
 import * as MockKnex from 'mock-knex';
-
 import configs from './configs.json';
 
 const env = process.env.NODE_ENV || 'development';

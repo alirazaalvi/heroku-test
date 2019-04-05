@@ -9,20 +9,6 @@ import { connection } from '../../db';
 import config from '../../configs.json';
 
 /**
- * GET /users
- * List of users
- */
-export const getUsers = (req: Request, res: Response) => {
-  const users = [{
-    email: 'test@gmail.com',
-    id: '1',
-    name: 'Test User',
-  }];
-
-  return res.send(users);
-};
-
-/**
  * Post /signup
  * Save the user signup information
  */

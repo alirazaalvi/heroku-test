@@ -24,11 +24,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-
 app.get('/', (req: Request, res: Response) => res.send('Nothing to return'));
-
-
-app.get('/users', userController.getUsers);
 
 // app.post('/signup', userController.signup);
 app.post('/signup', userController.signup);
