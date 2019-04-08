@@ -4,7 +4,6 @@ import request from 'supertest';
 import server from '../../server';
 import * as userService from '../services/user_service';
 
-
 describe('POST /users', () => {
   const spyOnGetUser = jest.spyOn(userService, 'getUser');
   const spyOnInsertUser = jest.spyOn(userService, 'insertUser');

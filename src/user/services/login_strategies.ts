@@ -5,7 +5,6 @@ import { checkUserLogin, comparePasswords, getUserByEmail } from '../services/us
 import db from '../../db';
 import configs from '../../configs.json';
 
-
 const ExtractJWT = passportJWT.ExtractJwt;
 const JWTStrategy   = passportJWT.Strategy;
 

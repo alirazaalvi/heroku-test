@@ -18,4 +18,3 @@ describe('Get encrypted jwt hash', () => {
 //       expect(strongEncrypt(stringToBeDecoded)).toBe(expectedHash);
 //     });
 // });
-
