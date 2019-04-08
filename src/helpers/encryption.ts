@@ -1,7 +1,7 @@
 import Crypto from 'crypto';
 import configs from '../configs.json';
 
-export const strongEncrypt = (value: string) => {
+export const strongEncrypt = (value: string): string => {
   const settings = configs.encryption;
   const salt = settings.encryptionSalt;
   const iterations = settings.encryptionIterations;

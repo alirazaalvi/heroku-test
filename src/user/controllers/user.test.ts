@@ -14,7 +14,7 @@ describe('POST /users', () => {
     spyOnInsertUser.mockReturnValue(new Promise((resolve, reject ) => (resolve(testSignupData))));
 
     request(server)
-      .post('/signup')
+      .post('/api/signup')
       .send(testSignupData)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -27,7 +27,7 @@ describe('POST /users', () => {
 
   it('throw validation error on invalid request data for signup', (done) => {
     request(server)
-      .post('/signup')
+      .post('/api/signup')
       .send({})
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -41,7 +41,7 @@ describe('POST /users', () => {
   it('responds with 400 if signing up user already exists', (done) => {
     spyOnGetUser.mockReturnValue(new Promise((resolve, reject ) => (resolve(testUserData))));
     request(server)
-      .post('/signup')
+      .post('/api/signup')
       .send(testUserData)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -57,7 +57,7 @@ describe('POST /users', () => {
     spyOnInsertUser.mockReturnValue(new Promise((resolve, reject ) => (resolve(undefined))));
 
     request(server)
-      .post('/signup')
+      .post('/api/signup')
       .send(testUserData)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -70,7 +70,7 @@ describe('POST /users', () => {
 
   it('throw validation error on invalid request data for login', (done) => {
     request(server)
-      .post('/login')
+      .post('/api/login')
       .send({})
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
