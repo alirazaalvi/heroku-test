@@ -19,7 +19,7 @@ export const getUser = async(db: knex, email: string): Promise<UserViewModel> =>
     return new Promise((resolve, reject ) => (resolve(user)));
 };
 
-export const checkUserLogin = async(db: knex, email: string, password: string): Promise<UserViewModel> => {
+export const checkUserLogin = async(db: knex, email: string, password: string): Promise<User> => {
   const user = await db('users')
     .where({ email })
     .andWhere({ password: strongEncrypt(password) })
