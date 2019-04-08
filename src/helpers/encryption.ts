@@ -7,7 +7,7 @@ export const strongEncrypt = (value: string) => {
   const iterations = settings.encryptionIterations;
   const keyLength = settings.encryptionKeyLength;
   const result = Crypto.pbkdf2Sync(value, salt, iterations, keyLength, 'sha512');
-  return new Buffer(result).toString('base64');
+  return Buffer.from(result).toString('base64');
 };
 
 // export function basicHash() {
