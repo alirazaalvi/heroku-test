@@ -8,8 +8,9 @@ import * as userService from '../services/user_service';
 describe('POST /users', () => {
   const spyOnGetUser = jest.spyOn(userService, 'getUser');
   const spyOnInsertUser = jest.spyOn(userService, 'insertUser');
-  const testSignupData = {firstName: 'test', lastName: 'test', email: 'test@gmail.com', password: 'enterhere', confirmPassword: 'enterhere'};
+  const testUserData = {firstName: 'test', lastName: 'test', email: 'test@gmail.com', role: 1};
   it('respond with 200 response on successfull signup', (done) => {
+    const testSignupData = {firstName: 'test', lastName: 'test', email: 'test@gmail.com', password: 'enterhere', confirmPassword: 'enterhere', role: 1};
     spyOnGetUser.mockReturnValue(new Promise((resolve, reject ) => (resolve(undefined))));
     spyOnInsertUser.mockReturnValue(new Promise((resolve, reject ) => (resolve(testSignupData))));
 
@@ -39,10 +40,10 @@ describe('POST /users', () => {
   });
 
   it('responds with 400 if signing up user already exists', (done) => {
-    spyOnGetUser.mockReturnValue(new Promise((resolve, reject ) => (resolve({ firstName: 'test', lastName: 'test', email: 'test@gmail.com'}))));
+    spyOnGetUser.mockReturnValue(new Promise((resolve, reject ) => (resolve(testUserData))));
     request(server)
       .post('/signup')
-      .send(testSignupData)
+      .send(testUserData)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(400)
@@ -58,7 +59,7 @@ describe('POST /users', () => {
 
     request(server)
       .post('/signup')
-      .send(testSignupData)
+      .send(testUserData)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(400)

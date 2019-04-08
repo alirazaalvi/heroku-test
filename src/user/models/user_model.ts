@@ -13,3 +13,10 @@ export interface UserSignupViewModel {
   email: string;
   role: number;
 }
+
+export interface UserViewModel {
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: number;
+}
