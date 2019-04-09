@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction} from 'express';
 import bodyParser from 'body-parser';
 import expressValidator from 'express-validator';
 import passport from 'passport';
+import lusca from 'lusca';
 import { checkSchema } from 'express-validator/check';
 import * as userController from './user/controllers/user';
 import * as loginStrategies from './user/services/login_strategies';
@@ -9,6 +10,10 @@ import * as loginStrategies from './user/services/login_strategies';
 loginStrategies.initStrategies();
 
 const app = express();
+
+app.use(lusca.xframe('SAMEORIGIN'));
+app.use(lusca.xssProtection(true));
+app.disable('x-powered-by');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
