@@ -64,6 +64,9 @@ Project Structure
 | package.json                       | NPM dependencies.                                            |
 | package-lock.json                  | Contains exact versions of NPM dependencies in package.json. |
 
+Graphql Endpoint
+--------------------
+<BASE_URL>/graphql
 
 Additional Resources
 --------------------
