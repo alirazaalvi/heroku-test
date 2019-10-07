@@ -30,7 +30,7 @@ export const checkUserLogin = async(db: knex, email: string, password: string): 
 
 export const getUserByEmail = async(db: knex, email: string): Promise<UserViewModel> => {
   const user = await db('users')
-  .where(email)
+  .where({email})
   .first();
 
   return new Promise((resolve, reject ) => (resolve(user)));
