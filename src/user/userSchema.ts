@@ -1,5 +1,5 @@
 export const typeDef = `
-type Query {
+extend type Query {
   users: [User],
   getUser(email: String!): User
 }

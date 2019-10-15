@@ -3,7 +3,7 @@ import { IResolvers } from 'graphql-tools';
 import { connection } from '../db';
 import { getUserByEmail } from './services/user_service';
 
-const resolverMap: IResolvers = {
+export const resolverMap: IResolvers = {
   Query: {
     // users: () => users,
     getUser: async(obj, args, context, info) => {

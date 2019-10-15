@@ -8,7 +8,7 @@ import cors from 'cors';
 import lusca from 'lusca';
 import depthLimit from 'graphql-depth-limit';
 import schema from './schema';
-import { checkSchema } from 'express-validator/check';
+// import { checkSchema } from 'express-validator/check';
 import * as userController from './user/controllers/user';
 import * as loginStrategies from './user/services/login_strategies';
 

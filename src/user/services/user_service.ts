@@ -5,7 +5,7 @@ import { strongEncrypt } from '../../helpers/encryption';
 // Workaround: Returning another plain promise for macking mocks for test.
 // Todo: Once i'll find better solution then extra promise will go away.
 
-export const insertUser = async(db: knex, newUser: UserSignupViewModel): Promise<UserViewModel> => {
+export const insertUser = async(db: knex, newUser: UserSignupViewModel): Promise<number[]> => {
   const user = await db('users').insert(newUser);
   return new Promise((resolve, reject ) => (resolve(user)));
 };
