@@ -25,8 +25,8 @@ export const signup = async(req: Request, res: Response) => {
     return res.status(400).json({ errors});
   }
 
-  const input = req.body;
 
+  const input = req.body;
   const existingUser = await getUser(connection, input.email);
 
   if (existingUser) {
@@ -41,7 +41,7 @@ export const signup = async(req: Request, res: Response) => {
     role: 1,
   };
 
-  const user = await insertUser(connection, newUser);
+  const user: number[] = await insertUser(connection, newUser);
 
   if (!user) {
     return res.status(400).json({response: 'Unable to add user. Please try again.'});
@@ -55,14 +55,13 @@ export const login = async(req: Request, res: Response, next: NextFunction) => {
   req.assert('password', 'Password cannot be blank').notEmpty();
   req.sanitize('email').normalizeEmail({ gmail_remove_dots: false });
 
-  const errors = req.validationErrors();
+  const errors: Record<string, any> = req.validationErrors();
 
   if (errors) {
     return res.status(400).json({ errors});
   }
 
   passport.authenticate('local', (err, user, info) => {
-    // if (err) { return next(err); }
     if (!user) {
       return res.status(400).json(err);
     }
