@@ -1,18 +1,35 @@
 import knex from 'knex';
-import { Todo } from './todoModel';
+import { Todo, TodoInput } from './todoModel';
 
 export const getTodos = async(db: knex, userId: number): Promise<Todo[]> => {
-  const todos  = await db<Todo>('todos')
+  return await db<Todo>('todos')
     .where({ userId });
-
-    return new Promise((resolve, reject ) => (resolve(todos)));
 };
 
 
 export const getTodo = async(db: knex, id: number): Promise<Todo> => {
-  const todo = await db<Todo>('todos')
+  return await db<Todo>('todos')
   .where({id})
   .first();
+};
+
+export const addTodo = async(db: knex, newTodo: TodoInput): Promise<Todo> => {
+  const insertId: number[] = await db('todos').insert(newTodo);
+  const todo: Todo = {
+    id: insertId[0],
+    userId: newTodo.userId,
+    title: newTodo.title,
+    description: newTodo.description,
+  };
 
   return new Promise((resolve, reject ) => (resolve(todo)));
 };
+
+export const deleteTodo = async(db: knex, userId: number, todoId: number): Promise<number> => {
+  await db('todos')
+  .where('id', todoId)
+  .andWhere('userId', userId)
+  .delete();
+
+  return new Promise((resolve, reject ) => (resolve(todoId)));
+}

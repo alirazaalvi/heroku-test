@@ -16,7 +16,7 @@ export let connection = knex({
     database: writer.database,
   },
   pool: { min: 0, max: writer.poolSize },
-  // debug: true,
+  debug: true,
     // Merge `postProcessResponse` and `wrapIdentifier` mappers.
   // If your columns are UPPER_SNAKE_CASE you can use
   // knexSnakeCaseMappers({ upperCase: true })

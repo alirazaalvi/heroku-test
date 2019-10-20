@@ -10,6 +10,11 @@ export const typeDef = `
 
   extend type Query {
     todos(userId: Int): [Todo],
-    getTodo(todoId: Int): Todo
+    todo(todoId: Int): Todo
+  }
+
+  type Mutation {
+    addTodo(userId: Int, title: String, description: String!): Todo!
+    deleteTodo(todoId: Int): Int
   }
 `;
