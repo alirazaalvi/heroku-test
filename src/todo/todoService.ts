@@ -6,7 +6,6 @@ export const getTodos = async(db: knex, userId: number): Promise<Todo[]> => {
     .where({ userId });
 };
 
-
 export const getTodo = async(db: knex, id: number): Promise<Todo> => {
   return await db<Todo>('todos')
   .where({id})
@@ -32,4 +31,4 @@ export const deleteTodo = async(db: knex, userId: number, todoId: number): Promi
   .delete();
 
   return new Promise((resolve, reject ) => (resolve(todoId)));
-}
+};

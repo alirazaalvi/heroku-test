@@ -25,7 +25,6 @@ export const signup = async(req: Request, res: Response) => {
     return res.status(400).json({ errors});
   }
 
-
   const input = req.body;
   const existingUser = await getUser(connection, input.email);
 

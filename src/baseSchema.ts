@@ -8,5 +8,5 @@ type Query {
 export const resolverMap: IResolvers = {
   Query: {
     base: () => '',
-  }
-}
+  },
+};
