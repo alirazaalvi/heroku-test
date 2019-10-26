@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run serve",
+    "postinstall": "npm run build",
     "build": "npm run build-sass && npm run build-ts && npm run tslint && npm run copy-static-assets",
     "serve": "node dist/server.js",
     "watch-node": "nodemon dist/server.js",
@@ -87,5 +88,8 @@
     "ts-node": "^8.4.1",
     "tslint": "^5.20.0",
     "typescript": "^3.6.3"
+  },
+  "engines": {
+    "node": "10.13.0"
   }
 }
