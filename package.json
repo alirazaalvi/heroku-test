@@ -35,7 +35,7 @@
     "express-validator": "^5.3.1",
     "graphql": "^14.5.8",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^0.19.5",
+    "knex": "^2.4.0",
     "lodash": "^4.17.15",
     "lusca": "^1.6.1",
     "moment": "^2.24.0",
